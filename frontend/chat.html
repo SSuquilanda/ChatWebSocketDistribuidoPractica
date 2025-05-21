@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat WebSocket</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .chat-container {
+      width: 400px;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #0078d4;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+
+    #chat-box {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      background-color: #fafafa;
+    }
+
+    #chat-box p {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      background-color: #d9edf7;
+      border-radius: 4px;
+    }
+
+    .input-area {
+      display: flex;
+      padding: 1rem;
+      border-top: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    #mensaje {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #enviarBtn {
+      margin-left: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #0078d4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #enviarBtn:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <header> Cliente WebSocket - SAM</header>
+    <div id="chat-box"></div>
+    <div class="input-area">
+      <input type="text" id="mensaje" placeholder="Escribe tu mensaje...">
+      <button id="enviarBtn">Enviar</button>
+    </div>
+  </div>
+
+  <script src="chat.js"></script>
+</body>
+</html>
