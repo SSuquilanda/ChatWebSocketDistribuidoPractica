@@ -1,0 +1,12 @@
+# Ignorar archivos de Maven y VSCode
+target/
+.vscode/
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.pyc
+
+# Sistema operativo
+.DS_Store
