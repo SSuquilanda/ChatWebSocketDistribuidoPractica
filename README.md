@@ -76,3 +76,78 @@ Y viceversa
 Todos los clientes están conectados al mismo servidor WebSocket (ws://localhost:8765) y comparten mensajes en tiempo real.
 
 
+---
+
+## 🧰 Requisitos
+
+- Java 17
+- Maven
+- Python 3
+- Navegador moderno
+
+---
+
+## 🛠️ Crear el proyecto Java con Maven
+
+Desde VS Code o terminal:
+
+```bash
+mvn archetype:generate -DgroupId=com.chat.client -DartifactId=chatclient1 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+Luego edita el archivo pom.xml generado para que incluya:
+
+<properties>
+  <maven.compiler.source>17</maven.compiler.source>
+  <maven.compiler.target>17</maven.compiler.target>
+</properties>
+
+<dependencies>
+  <dependency>
+    <groupId>org.java-websocket</groupId>
+    <artifactId>Java-WebSocket</artifactId>
+    <version>1.5.2</version>
+  </dependency>
+</dependencies>
+
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.8.1</version>
+      <configuration>
+        <source>17</source>
+        <target>17</target>
+        <compilerArgs>
+          <arg>--add-modules</arg>
+          <arg>java.desktop</arg>
+        </compilerArgs>
+      </configuration>
+    </plugin>
+
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <version>3.3.0</version>
+      <configuration>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+        <archive>
+          <manifest>
+            <mainClass>com.chat.client.ChatClient1</mainClass>
+          </manifest>
+        </archive>
+      </configuration>
+      <executions>
+        <execution>
+          <id>make-assembly</id>
+          <phase>package</phase>
+          <goals>
+            <goal>single</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
